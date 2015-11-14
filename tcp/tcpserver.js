@@ -3,13 +3,8 @@ var net = require("net");
 port = 9000;
 
 var dogis = [];
-var isBegin = false;
 
-function getBegin() {
-  return isBegin;
-}
-
-function begin() {
+function start() {
   var server = net.createServer(function(socket) {
     var id = dogis.length;
     dogis.push({"id": id, "socket": socket});
@@ -39,5 +34,4 @@ function send(id, msg) {
 }
 
 exports.send = send;
-exports.begin = begin;
-exports.getBegin = getBegin;
+exports.start = start;

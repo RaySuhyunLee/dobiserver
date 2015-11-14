@@ -9,8 +9,6 @@ function list(request, response) {
 
 function control(request, response) {
   var queryData = url.parse(request.url, true).query;
-  if(!tcpserver.getBegin())
-    tcpserver.begin();
   var result = tcpserver.send(parseInt(queryData["id"])
       , queryData["toggle"]);
   resp = {"result": result};
